@@ -32,5 +32,9 @@ namespace WebApi.Domain.Entities
 
         public ICollection<Category> Categories { get; set; }
 
+        public static implicit operator Product(Product v)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
