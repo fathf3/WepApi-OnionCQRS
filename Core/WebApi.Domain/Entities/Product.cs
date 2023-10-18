@@ -9,6 +9,18 @@ namespace WebApi.Domain.Entities
 {
     public class Product : EntityBase
     {
+        public Product()
+        {
+            
+        }
+        public Product(string title, string description, int brandId, decimal price, decimal discount)
+        {
+            this.Title = title;
+            this.Description = description;
+            this.BrandId = brandId;
+            this.Price = price;
+            this.Discount = discount;
+        }
         public required string Title { get; set; }
         public required string Description { get; set; }
         public required decimal Price { get; set; }
