@@ -12,7 +12,7 @@ namespace WebApi.Application.Interfaces.Repositories
         Task AddAsync(T entity);
         Task AddRangeAsync(IList<T> entites);
         Task<T> UpdateAsync(T entity);
-        Task<T> HardDeleteAsync(T entity);
+        Task HardDeleteAsync(T entity);
         
 
 
