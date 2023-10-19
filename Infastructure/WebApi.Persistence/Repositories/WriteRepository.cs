@@ -31,12 +31,10 @@ namespace WebApi.Persistence.Repositories
             await Table.AddRangeAsync(entites);
         }
 
-        public async Task<T> HardDeleteAsync(T entity)
+        public async Task HardDeleteAsync(T entity)
         {
             await Task.Run(() => Table.Remove(entity));
         }
-
-        
 
         public async Task<T> UpdateAsync(T entity)
         {
