@@ -1,7 +1,6 @@
 using WebApi.Persistence;
 using WebApi.Application;
-
-
+using WebApi.Application.Exceptions;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -31,6 +30,8 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+
+app.ConfigureExceptionHandlingMiddleware();
 
 app.UseAuthorization();
 

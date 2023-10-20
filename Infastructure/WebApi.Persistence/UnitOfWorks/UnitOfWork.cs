@@ -26,6 +26,6 @@ namespace WebApi.Persistence.UnitOfWorks
 
         IReadRepository<T> IUnitOfWork.GetReadRepository<T>() => new ReadRepository<T>(appDbContext);
 
-        IWriteRepository<T> IUnitOfWork.IWriteRepository<T>() => new WriteRepository<T>(appDbContext);
+        IWriteRepository<T> IUnitOfWork.GetWriteRepository<T>() => new WriteRepository<T>(appDbContext);
     }
 }

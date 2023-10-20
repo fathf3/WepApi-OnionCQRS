@@ -1,6 +1,8 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using WebApi.Application.Features.Products.Commands.CreateProduct;
+using WebApi.Application.Features.Products.Commands.UpdateProduct;
 using WebApi.Application.Features.Products.Queries.GetAllProducts;
 
 namespace WebApi.Api.Controllers
@@ -23,8 +25,19 @@ namespace WebApi.Api.Controllers
             return Ok(response);
         }
 
+        [HttpPost]
+        public async Task<IActionResult> CreateProduct(CreateProductCommandRequest request)
+        {
+            await mediator.Send(request);
+            return Ok();
+        }
 
-
+        [HttpPut]
+        public async Task<IActionResult> UpdateProduct(UpdateProductCommandRequest request)
+        {
+            await mediator.Send(request);
+            return Ok($"{request.Title} güncellenmiştir.");
+        }
 
     }
 }
