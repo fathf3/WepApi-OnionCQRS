@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using WebApi.Application.Features.Products.Rules;
 using WebApi.Application.Interfaces.UnitOfWorks;
 using WebApi.Domain.Entities;
 
@@ -12,15 +13,24 @@ namespace WebApi.Application.Features.Products.Commands.CreateProduct
     public class CreateProductCommandHandler : IRequestHandler<CreateProductCommandRequest>
     {
         private readonly IUnitOfWork unitOfWork;
+        private readonly ProductRules productRules;
 
-        public CreateProductCommandHandler(IUnitOfWork unitOfWork)
+        public CreateProductCommandHandler(IUnitOfWork unitOfWork, ProductRules productRules)
         {
             this.unitOfWork = unitOfWork;
+            this.productRules = productRules;
         }
 
         public async Task Handle(CreateProductCommandRequest request, CancellationToken cancellationToken)
         {
+            var products = await unitOfWork.GetReadRepository<Product>().GetAllAsync();
+
+
+            await productRules.ProductTitleMustNotBeSame(products, request.Title);
+            
             Product product = new(request.Title, request.Description, request.BrandId, request.Price, request.Discount);
+
+
             await unitOfWork.GetWriteRepository<Product>().AddAsync(product);
             if(await unitOfWork.SaveAsync() > 0)
             {

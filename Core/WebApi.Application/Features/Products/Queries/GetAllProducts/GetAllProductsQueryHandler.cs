@@ -45,8 +45,8 @@ namespace WebApi.Application.Features.Products.Queries.GetAllProducts
             foreach (var product in map)
                 product.Price -= (product.Price * product.Discount / 100);
 
-            //return map;
-            throw new Exception("hata !!");
+            return map;
+            //throw new Exception("hata !!");
         }
 
 
