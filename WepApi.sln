@@ -13,13 +13,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebApi.Domain", "Core\WebAp
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebApi.Application", "Core\WebApi.Application\WebApi.Application.csproj", "{34FF0028-4B45-4DAC-A51B-D650DB031C87}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebApi.Infastructure", "Infastructure\WebApi.Infastructure\WebApi.Infastructure.csproj", "{15B75A1A-271A-4AE2-B556-6A1D6D7EB541}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebApi.Infrastructure", "Infastructure\WebApi.Infastructure\WebApi.Infrastructure.csproj", "{15B75A1A-271A-4AE2-B556-6A1D6D7EB541}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebApi.Persistence", "Infastructure\WebApi.Persistence\WebApi.Persistence.csproj", "{CF4701FB-45F8-4A78-9F5E-5D73F4764B2C}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebApi.Api", "Presentation\WebApi.Api\WebApi.Api.csproj", "{27FBFDFA-8132-4D43-9462-9186BEBA789D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApi.Mapper", "Core\WebApi.Mapper\WebApi.Mapper.csproj", "{2711C70A-9C34-4E3C-AC66-A267115F5C29}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebApi.Mapper", "Core\WebApi.Mapper\WebApi.Mapper.csproj", "{2711C70A-9C34-4E3C-AC66-A267115F5C29}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
