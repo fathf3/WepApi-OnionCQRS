@@ -10,7 +10,7 @@ using WebApi.Domain.Entities;
 
 namespace WebApi.Application.Features.Products.Commands.CreateProduct
 {
-    public class CreateProductCommandHandler : IRequestHandler<CreateProductCommandRequest>
+    public class CreateProductCommandHandler : IRequestHandler<CreateProductCommandRequest, Unit>
     {
         private readonly IUnitOfWork unitOfWork;
         private readonly ProductRules productRules;
@@ -21,7 +21,7 @@ namespace WebApi.Application.Features.Products.Commands.CreateProduct
             this.productRules = productRules;
         }
 
-        public async Task Handle(CreateProductCommandRequest request, CancellationToken cancellationToken)
+        public async Task<Unit> Handle(CreateProductCommandRequest request, CancellationToken cancellationToken)
         {
             var products = await unitOfWork.GetReadRepository<Product>().GetAllAsync();
 
@@ -42,6 +42,7 @@ namespace WebApi.Application.Features.Products.Commands.CreateProduct
                     });
                 await unitOfWork.SaveAsync();
             }
+            return Unit.Value;
         }
     }
 }
